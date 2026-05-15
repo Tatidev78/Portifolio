@@ -9,12 +9,33 @@ export const Panel = styled.section`
   background-image:
     radial-gradient(circle at top left, rgba(0, 255, 120, 0.08), transparent 30%),
     radial-gradient(circle at bottom right, rgba(0, 255, 120, 0.05), transparent 30%);
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
 `
 
 export const PanelTitle = styled.h2`
   font-size: 32px;
   margin-bottom: 40px;
   color: #ffffff;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
 `
 
 export const SkillCategory = styled.div`
@@ -38,6 +59,22 @@ export const SkillCategory = styled.div`
     color: #6dff95;
 
     margin-bottom: 24px;
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
   }
 `
 
@@ -45,6 +82,10 @@ export const SkillsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
 `
 
 export const Tech = styled.span`
@@ -74,5 +115,11 @@ export const Tech = styled.span`
     border-color: rgba(0, 252, 76, 0.5);
 
     box-shadow: 0 0 18px rgba(0, 255, 120, 0.22);
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 14px;
+    font-size: 13px;
+    gap: 6px;
   }
 `

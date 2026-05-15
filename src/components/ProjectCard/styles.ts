@@ -26,6 +26,15 @@ export const Card = styled.div`
 
     box-shadow: 0 20px 50px rgba(92, 246, 226, 0.15);
   }
+
+  @media (max-width: 768px) {
+    max-width: 320px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    border-radius: 20px;
+  }
 `
 
 export const ProjectImage = styled.img`
@@ -36,6 +45,14 @@ export const ProjectImage = styled.img`
   object-fit: cover;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+
+  @media (max-width: 480px) {
+    height: 180px;
+  }
 `
 
 export const Content = styled.div`
@@ -46,6 +63,11 @@ export const Content = styled.div`
   flex-direction: column;
 
   gap: 18px;
+
+  @media (max-width: 480px) {
+    padding: 20px;
+    gap: 16px;
+  }
 `
 
 export const Title = styled.h3`
@@ -56,6 +78,14 @@ export const Title = styled.h3`
   color: #fafafa;
 
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `
 
 export const Description = styled.p`
@@ -66,6 +96,11 @@ export const Description = styled.p`
   color: #a1a1aa;
 
   margin: 0;
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+    line-height: 1.6;
+  }
 `
 
 export const Stack = styled.div`
@@ -88,12 +123,19 @@ export const Tech = styled.span`
   font-size: 13px;
 
   color: #b5fdb8ff;
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
 `
 
 export const Links = styled.div`
   display: flex;
 
   align-items: center;
+
+  flex-wrap: wrap;
 
   gap: 18px;
 
@@ -111,11 +153,19 @@ export const Links = styled.div`
     transition: 0.3s;
 
     &:hover {
-      
       color: #d9f18aff;
     }
   }
+
+  @media (max-width: 480px) {
+    gap: 14px;
+
+    a {
+      font-size: 13px;
+    }
+  }
 `
+
 export const ProjectsWrapper = styled.div`
   position: relative;
 
@@ -125,6 +175,7 @@ export const ProjectsWrapper = styled.div`
 
   width: 100%;
 `
+
 export const ProjectsSlider = styled.div`
   display: flex;
 
@@ -138,10 +189,18 @@ export const ProjectsSlider = styled.div`
 
   padding: 20px 0;
 
+  scroll-snap-type: x mandatory;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media (max-width: 480px) {
+    gap: 18px;
+    padding: 16px 0;
+  }
 `
+
 export const ArrowButton = styled.button`
   width: 52px;
 
@@ -163,5 +222,15 @@ export const ArrowButton = styled.button`
 
   &:hover {
     background: rgba(0, 252, 76, 0.18);
+  }
+
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
   }
 `

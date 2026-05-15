@@ -15,6 +15,25 @@ export const Container = styled.section`
   overflow: hidden;
 
   gap: 120px;
+
+  @media (max-width: 1200px) {
+    padding: 120px 60px 0;
+    gap: 80px;
+  }
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-items: center;
+
+    padding: 120px 40px 40px;
+
+    gap: 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 110px 20px 32px;
+    gap: 40px;
+  }
 `
 
 export const Content = styled.div`
@@ -28,9 +47,15 @@ export const Content = styled.div`
   span {
     font-size: 12px;
 
-   text-transform: uppercase;
+    text-transform: uppercase;
 
     color: #71717a;
+
+    letter-spacing: 2px;
+
+    @media (max-width: 480px) {
+      font-size: 11px;
+    }
   }
 
   h1 {
@@ -43,6 +68,20 @@ export const Content = styled.div`
     letter-spacing: -4px;
 
     margin: 0;
+
+    @media (max-width: 992px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 34px;
+      letter-spacing: -2px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+      line-height: 1.1;
+    }
   }
 
   p {
@@ -55,6 +94,16 @@ export const Content = styled.div`
     line-height: 1.8;
 
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 15px;
+      line-height: 1.6;
+    }
   }
 
   h2 {
@@ -67,34 +116,90 @@ export const Content = styled.div`
     color: #fafafa;
 
     word-break: break-word;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 992px) {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
   }
 `
+
 export const ProjectsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
   width: 100%;
+
+  @media (max-width: 480px) {
+    gap: 12px;
+  }
 `
+
 export const ProjectsSlider = styled.div`
   display: flex;
   gap: 0;
   overflow: hidden;
   scroll-behavior: smooth;
+
   width: 380px;
+
   padding: 20px 0;
+
+  @media (max-width: 768px) {
+    width: 340px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 0;
+  }
 `
 
 export const ArrowButton = styled.button`
   width: 52px;
   height: 52px;
+
   border-radius: 50%;
+
   border: none;
+
   background: #1f1f1f;
+
   color: white;
+
   font-size: 24px;
+
   cursor: pointer;
+
   flex-shrink: 0;
+
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `
 
 export const ProjectsTrack = styled.div`
