@@ -2,8 +2,14 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
   width: 100%;
+
+  min-width: 100%;
+
   max-width: 380px;
-  flex-shrink: 0;
+
+  flex: 0 0 100%;
+
+  box-sizing: border-box;
 
   background: rgba(24, 24, 27, 0.85);
 
@@ -19,6 +25,8 @@ export const Card = styled.div`
 
   cursor: pointer;
 
+  scroll-snap-align: center;
+
   &:hover {
     transform: translateY(-8px);
 
@@ -33,6 +41,9 @@ export const Card = styled.div`
 
   @media (max-width: 480px) {
     max-width: 100%;
+
+    min-width: 100%;
+
     border-radius: 20px;
   }
 `
@@ -66,6 +77,7 @@ export const Content = styled.div`
 
   @media (max-width: 480px) {
     padding: 20px;
+
     gap: 16px;
   }
 `
@@ -99,6 +111,7 @@ export const Description = styled.p`
 
   @media (max-width: 480px) {
     font-size: 15px;
+
     line-height: 1.6;
   }
 `
@@ -126,6 +139,7 @@ export const Tech = styled.span`
 
   @media (max-width: 480px) {
     font-size: 12px;
+
     padding: 7px 12px;
   }
 `
@@ -173,7 +187,11 @@ export const ProjectsWrapper = styled.div`
 
   align-items: center;
 
+  justify-content: center;
+
   width: 100%;
+
+  overflow: hidden;
 `
 
 export const ProjectsSlider = styled.div`
@@ -187,9 +205,13 @@ export const ProjectsSlider = styled.div`
 
   width: 100%;
 
+  max-width: 380px;
+
   padding: 20px 0;
 
   scroll-snap-type: x mandatory;
+
+  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
     display: none;
@@ -197,7 +219,10 @@ export const ProjectsSlider = styled.div`
 
   @media (max-width: 480px) {
     gap: 18px;
+
     padding: 16px 0;
+
+    max-width: 100%;
   }
 `
 
@@ -226,7 +251,9 @@ export const ArrowButton = styled.button`
 
   @media (max-width: 768px) {
     width: 44px;
+
     height: 44px;
+
     font-size: 20px;
   }
 

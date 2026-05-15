@@ -37,6 +37,7 @@ export const Container = styled.section`
 `
 
 export const Content = styled.div`
+  width: 100%;
   max-width: 620px;
 
   display: flex;
@@ -81,6 +82,7 @@ export const Content = styled.div`
     @media (max-width: 480px) {
       font-size: 28px;
       line-height: 1.1;
+      letter-spacing: -1px;
     }
   }
 
