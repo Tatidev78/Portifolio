@@ -6,8 +6,6 @@ import StackPanel from "../../components/StackPanel";
 import Connect from "../../components/Connect";
 
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-
 import { Container, Content,  ProjectsWrapper,
   ProjectsSlider, ArrowButton, ProjectsTrack } from './styles'
 
