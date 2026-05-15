@@ -18,10 +18,12 @@ export const Container = styled.header`
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
+  flex-direction: row;
+  justify-content: space-between; /* 🔥 importante */
+  align-items: center;
+
+  padding: 16px 20px;
+}
 `
 
 export const Logo = styled.h1`
@@ -53,9 +55,10 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: 14px;
-  }
+  flex-wrap: nowrap; /* impede quebrar linha */
+  gap: 14px;
+  overflow-x: auto; /* permite rolar se faltar espaço */
+}
 `
 
 export const Status = styled.div`

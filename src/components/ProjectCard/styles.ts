@@ -31,9 +31,11 @@ export const Card = styled.div`
   }
 
   @media (max-width: 480px) {
-    flex: 0 0 100%;
-    border-radius: 20px;
-  }
+  flex: 0 0 88%%;
+  max-width: 88%%;
+  margin: 0 auto;
+  border-radius: 18px;
+}
 `
 
 /* ================= IMAGE ================= */
@@ -67,9 +69,9 @@ export const Content = styled.div`
   gap: 18px;
 
   @media (max-width: 480px) {
-    padding: 20px;
-    gap: 16px;
-  }
+  padding: 16px;
+  gap: 14px;
+}
 `
 
 /* ================= TITLE ================= */
@@ -83,8 +85,9 @@ export const Title = styled.h3`
   word-break: break-word;
 
   @media (max-width: 480px) {
-    font-size: 20px;
-  }
+  font-size: 18px;
+  line-height: 1.3;
+}
 `
 
 /* ================= DESCRIPTION ================= */
@@ -97,6 +100,11 @@ export const Description = styled.p`
 
   word-break: break-word;
   overflow-wrap: break-word;
+
+  @media (max-width: 480px) {
+  font-size: 14px;
+  line-height: 1.5;
+}
 `
 
 /* ================= STACK ================= */
@@ -119,6 +127,12 @@ export const Tech = styled.span`
   color: #b5fdb8;
 
   white-space: nowrap;
+
+  @media (max-width: 480px) {
+  font-size: 11px;
+  padding: 5px 10px;
+  white-space: normal; /* 🔥 importante */
+}
 `
 
 /* ================= LINKS ================= */
@@ -143,10 +157,14 @@ export const Links = styled.div`
   }
 
   @media (max-width: 480px) {
-    a {
-      font-size: 13px;
-    }
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  a {
+    font-size: 13px;
   }
+}
 `
 
 /* ================= WRAPPER ================= */
@@ -189,9 +207,16 @@ export const ProjectsSlider = styled.div`
   }
 
   @media (max-width: 480px) {
-    gap: 18px;
-    padding: 20px 0;
-  }
+  gap: 16px;
+
+  padding: 16px;
+
+  scroll-snap-type: x mandatory;
+
+  justify-content: flex-start;
+
+  max-width: 100%;
+}
 `
 
 /* ================= ARROWS ================= */
@@ -228,8 +253,6 @@ export const ArrowButton = styled.button`
   }
 
   @media (max-width: 480px) {
-    width: 34px;
-    height: 34px;
-    font-size: 14px;
-  }
+  display: none;
+}
 `
