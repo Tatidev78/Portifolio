@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const Container = styled.header`
   width: 100%;
 
-  padding: 24px 80px;
+  padding: 16px 80px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 32px;
+  gap: 24px;
 
   position: fixed;
 
@@ -20,40 +20,44 @@ export const Container = styled.header`
 
   box-sizing: border-box;
 
-  background: rgba(11, 11, 15, 0.8);
+  background: rgba(11, 11, 15, 0.82);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   @media (max-width: 1024px) {
-    padding: 20px 40px;
+    padding: 16px 40px;
   }
 
   @media (max-width: 768px) {
-    padding: 18px 24px;
+    padding: 14px 24px;
 
-    gap: 20px;
+    gap: 16px;
   }
 
   @media (max-width: 480px) {
-    padding: 14px 16px;
+    padding: 12px 16px;
 
-    gap: 12px;
+    display: grid;
 
-    flex-wrap: wrap;
+    grid-template-columns: 1fr auto;
+
+    row-gap: 10px;
   }
 `
 
 export const Logo = styled.h1`
-  font-size: 24px;
+  font-size: 22px;
 
   color: #FFFFFF;
+
+  margin: 0;
 
   white-space: nowrap;
 
   @media (max-width: 480px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `
 
@@ -64,7 +68,7 @@ export const Nav = styled.nav`
 
   justify-content: center;
 
-  gap: 32px;
+  gap: 24px;
 
   flex: 1;
 
@@ -75,7 +79,7 @@ export const Nav = styled.nav`
 
     color: #fff;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: 500;
 
@@ -91,34 +95,30 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    gap: 20px;
+    gap: 16px;
 
     button {
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 
   @media (max-width: 480px) {
-    width: 100%;
+    grid-column: 1 / -1;
 
     justify-content: flex-start;
 
-    gap: 16px;
-
     overflow-x: auto;
 
-    white-space: nowrap;
+    gap: 14px;
 
-    padding-bottom: 4px;
-
-    order: 3;
+    padding-bottom: 2px;
 
     &::-webkit-scrollbar {
       display: none;
     }
 
     button {
-      font-size: 13px;
+      font-size: 12px;
 
       flex-shrink: 0;
     }
@@ -132,10 +132,10 @@ export const Status = styled.div`
 
   color: #8DB600;
 
-  white-space: nowrap;
+  font-size: 14px;
 
   @media (max-width: 480px) {
-    font-size: 13px;
+    display: none;
   }
 `
 
@@ -144,7 +144,7 @@ export const Language = styled.div`
 
   align-items: center;
 
-  gap: 8px;
+  gap: 6px;
 
   button {
     background-color: transparent;
@@ -153,7 +153,7 @@ export const Language = styled.div`
 
     color: #fff;
 
-    font-size: 16px;
+    font-size: 14px;
 
     font-weight: 500;
 
@@ -167,10 +167,8 @@ export const Language = styled.div`
   }
 
   @media (max-width: 480px) {
-    gap: 6px;
-
     button {
-      font-size: 13px;
+      font-size: 12px;
     }
   }
 `
