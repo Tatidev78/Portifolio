@@ -182,15 +182,11 @@ export const Links = styled.div`
 
 export const ProjectsWrapper = styled.div`
   position: relative;
-
+  gap: 8px;
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   width: 100%;
-
   overflow: hidden;
 `
 
@@ -245,19 +241,31 @@ export const ArrowButton = styled.button`
 
   transition: 0.3s;
 
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
   &:hover {
     background: rgba(0, 252, 76, 0.18);
   }
 
   @media (max-width: 768px) {
-    width: 44px;
+    width: 42px;
 
-    height: 44px;
+    height: 42px;
 
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: 480px) {
-    display: none;
+    width: 34px;
+
+    height: 34px;
+
+    font-size: 14px;
   }
 `
