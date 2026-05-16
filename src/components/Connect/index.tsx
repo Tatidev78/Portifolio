@@ -8,13 +8,21 @@ import {
 
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
-const Connect = () => {
+type Props = {
+  language: string
+}
+
+const Connect = ({ language }: Props) => {
   return (
     <Container>
-      <Title>Conecte-se comigo</Title>
+      <Title>
+        {language === 'pt' ? 'Conecte-se comigo' : 'Connect with me'}
+      </Title>
 
       <Text>
-        Para mais projetos e atualizações, acompanhe meu trabalho:
+        {language === 'pt'
+          ? 'Para mais projetos e atualizações, acompanhe meu trabalho:'
+          : 'For more projects and updates, follow my work:'}
       </Text>
 
       <Links>

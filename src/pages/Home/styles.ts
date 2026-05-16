@@ -136,6 +136,8 @@ export const Content = styled.div`
   }
 `
 
+/* ================= DESKTOP SLIDER ================= */
+
 export const ProjectsWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -144,68 +146,87 @@ export const ProjectsWrapper = styled.div`
   width: 100%;
 
   @media (max-width: 480px) {
-    gap: 12px;
+    display: none;
   }
 `
 
 export const ProjectsSlider = styled.div`
-  display: flex;
-  gap: 0;
   overflow: hidden;
-  scroll-behavior: smooth;
-
   width: 380px;
-
   padding: 20px 0;
 
   @media (max-width: 768px) {
     width: 340px;
   }
-
-  @media (max-width: 480px) {
-    width: 100%;
-    max-width: 320px;
-    padding: 12px 0;
-  }
 `
 
-export const ArrowButton = styled.button`
+export const ProjectsTrack = styled.div<{ $current: number }>`
+  display: flex;
+  gap: 0;
+  transition: transform 0.5s ease;
+  transform: translateX(${({ $current }) => `-${$current * 100}%`});
+`
+
+export const ArrowButton = styled.button<{ disabled?: boolean }>`
   width: 52px;
   height: 52px;
 
   border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  border: none;
+  background: ${({ disabled }) => disabled ? 'rgba(24, 24, 27, 0.4)' : 'rgba(24, 24, 27, 0.85)'};
+  color: ${({ disabled }) => disabled ? '#52525b' : '#fafafa'};
 
-  background: #1f1f1f;
+  font-size: 20px;
 
-  color: white;
-
-  font-size: 24px;
-
-  cursor: pointer;
+  cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
+  transition: 0.3s;
 
   flex-shrink: 0;
 
-  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    opacity: 0.8;
+    background: ${({ disabled }) => disabled ? 'rgba(24, 24, 27, 0.4)' : 'rgba(0, 252, 76, 0.18)'};
   }
 
   @media (max-width: 768px) {
     width: 44px;
     height: 44px;
-    font-size: 20px;
-  }
-
-  @media (max-width: 480px) {
-    display: none;
+    font-size: 16px;
   }
 `
 
-export const ProjectsTrack = styled.div`
-  display: flex;
+/* ================= MOBILE SLIDER ================= */
 
-  transition: 0.5s ease;
+export const MobileSlider = styled.div`
+  display: none;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    display: flex;
+    padding: 16px 0;
+  }
+`
+
+export const MobileTrack = styled.div`
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+`
+
+export const MobileCardWrapper = styled.div`
+  flex: 0 0 85%;
+  scroll-snap-align: start;
 `

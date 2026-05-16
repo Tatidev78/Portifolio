@@ -1,4 +1,16 @@
-import { Container, Logo, Nav, Status, Language } from './styles'
+import { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
+
+import {
+  Container,
+  Logo,
+  Nav,
+  Status,
+  Language,
+  MenuButton,
+  MobileMenu,
+  Overlay
+} from './styles'
 
 type Props = {
   setSection: (section: string) => void
@@ -7,44 +19,64 @@ type Props = {
 }
 
 const Header = ({ setSection, setLanguage, language }: Props) => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleNavClick = (section: string) => {
+    setSection(section)
+    setMenuOpen(false)
+  }
+
   return (
     <Container>
-      <Logo>Tati.OS</Logo>
+      <Logo onClick={() => handleNavClick('stack')}>Tati.OS</Logo>
 
-      <Nav>
-        <button onClick={() => setSection('stack')}>
-          {language === 'pt' ? 'Tecnologias' : 'Stack'}
-        </button>
+      <MenuButton onClick={() => setMenuOpen(!menuOpen)} $isOpen={menuOpen}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </MenuButton>
 
-        <button onClick={() => setSection('projects')}>
-          {language === 'pt' ? 'Projetos' : 'Projects'}
-        </button>
+      <Overlay $isOpen={menuOpen} onClick={() => setMenuOpen(false)} />
 
-        {/* <button onClick={() => setSection('journey')}>
-          {language === 'pt' ? 'Jornada' : 'Journey'}
-        </button> */}
+      <MobileMenu $isOpen={menuOpen}>
+        <Nav>
+          <button 
+            onClick={() => handleNavClick('stack')}
+            className={language === 'pt' ? 'pt' : 'en'}
+          >
+            {language === 'pt' ? 'Tecnologias' : 'Stack'}
+          </button>
 
-        <button onClick={() => setSection('connect')}>
-          {language === 'pt' ? 'Contato' : 'Connect'}
-        </button>
-      </Nav>
+          <button onClick={() => handleNavClick('projects')}>
+            {language === 'pt' ? 'Projetos' : 'Projects'}
+          </button>
 
-      <Language>
-        <button onClick={() => setLanguage('pt')}>
-          PT
-        </button>
+          <button onClick={() => handleNavClick('connect')}>
+            {language === 'pt' ? 'Contato' : 'Connect'}
+          </button>
+        </Nav>
 
-        <button onClick={() => setLanguage('en')}>
-          EN
-        </button>
-      </Language>
+        <Language>
+          <button 
+            onClick={() => setLanguage('pt')} 
+            className={language === 'pt' ? 'active' : ''}
+          >
+            PT
+          </button>
 
-      <Status>
-        <span></span>
-        {language === 'pt'
-          ? 'Disponível para projetos'
-          : 'Available for work'}
-      </Status>
+          <button 
+            onClick={() => setLanguage('en')}
+            className={language === 'en' ? 'active' : ''}
+          >
+            EN
+          </button>
+        </Language>
+
+        <Status>
+          <span className="pulse" />
+          {language === 'pt'
+            ? 'Disponível para projetos'
+            : 'Available for work'}
+        </Status>
+      </MobileMenu>
     </Container>
   )
 }

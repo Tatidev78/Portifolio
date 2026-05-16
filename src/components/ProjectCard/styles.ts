@@ -4,17 +4,20 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
   flex: 0 0 380px;
+
   width: 100%;
-  max-width: 100%;
+  max-width: 380px;
 
   box-sizing: border-box;
 
   background: rgba(24, 24, 27, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
+
   overflow: hidden;
 
   backdrop-filter: blur(12px);
+
   transition: 0.3s ease;
   cursor: pointer;
 
@@ -27,15 +30,18 @@ export const Card = styled.div`
   }
 
   @media (max-width: 768px) {
-    flex: 0 0 320px;
+    flex: 0 0 78vw;
+    max-width: 78vw;
+
+    border-radius: 20px;
   }
 
   @media (max-width: 480px) {
-  flex: 0 0 88%%;
-  max-width: 88%%;
-  margin: 0 auto;
-  border-radius: 18px;
-}
+    flex: 0 0 86vw;
+    max-width: 86vw;
+
+    border-radius: 18px;
+  }
 `
 
 /* ================= IMAGE ================= */
@@ -43,16 +49,27 @@ export const Card = styled.div`
 export const ProjectImage = styled.img`
   width: 100%;
   height: 220px;
+
   object-fit: cover;
+  display: block;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-  @media (max-width: 768px) {
-    height: 200px;
+ @media (max-width: 768px) {
+    height: 190px;
+
+    object-fit: contain;
+    padding: 10px;
+
+    background: #111;
+    box-sizing: border-box;
   }
 
   @media (max-width: 480px) {
-    height: 180px;
+    height: 170px;
+
+    object-fit: contain;
+    padding: 8px;
   }
 `
 
@@ -68,10 +85,15 @@ export const Content = styled.div`
   flex-direction: column;
   gap: 18px;
 
+  @media (max-width: 768px) {
+    padding: 20px;
+    gap: 16px;
+  }
+
   @media (max-width: 480px) {
-  padding: 16px;
-  gap: 14px;
-}
+    padding: 16px;
+    gap: 14px;
+  }
 `
 
 /* ================= TITLE ================= */
@@ -79,15 +101,21 @@ export const Content = styled.div`
 export const Title = styled.h3`
   font-size: 22px;
   font-weight: 600;
+
   color: #fafafa;
+
   margin: 0;
 
   word-break: break-word;
 
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
   @media (max-width: 480px) {
-  font-size: 18px;
-  line-height: 1.3;
-}
+    font-size: 18px;
+    line-height: 1.3;
+  }
 `
 
 /* ================= DESCRIPTION ================= */
@@ -95,16 +123,18 @@ export const Title = styled.h3`
 export const Description = styled.p`
   font-size: 15px;
   line-height: 1.6;
+
   color: #a1a1aa;
+
   margin: 0;
 
   word-break: break-word;
   overflow-wrap: break-word;
 
   @media (max-width: 480px) {
-  font-size: 14px;
-  line-height: 1.5;
-}
+    font-size: 14px;
+    line-height: 1.5;
+  }
 `
 
 /* ================= STACK ================= */
@@ -112,6 +142,7 @@ export const Description = styled.p`
 export const Stack = styled.div`
   display: flex;
   flex-wrap: wrap;
+
   gap: 8px;
 `
 
@@ -129,10 +160,11 @@ export const Tech = styled.span`
   white-space: nowrap;
 
   @media (max-width: 480px) {
-  font-size: 11px;
-  padding: 5px 10px;
-  white-space: normal; /* 🔥 importante */
-}
+    font-size: 11px;
+    padding: 5px 10px;
+
+    white-space: normal;
+  }
 `
 
 /* ================= LINKS ================= */
@@ -140,6 +172,7 @@ export const Tech = styled.span`
 export const Links = styled.div`
   display: flex;
   flex-wrap: wrap;
+
   gap: 16px;
 
   margin-top: 6px;
@@ -147,7 +180,9 @@ export const Links = styled.div`
   a {
     font-size: 14px;
     font-weight: 500;
+
     color: #fafafa;
+
     text-decoration: none;
     transition: 0.3s;
 
@@ -157,102 +192,14 @@ export const Links = styled.div`
   }
 
   @media (max-width: 480px) {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
 
-  a {
-    font-size: 13px;
+    gap: 10px;
+
+    a {
+      font-size: 13px;
+    }
   }
-}
 `
 
-/* ================= WRAPPER ================= */
-
-export const ProjectsWrapper = styled.div`
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  overflow: hidden;
-`
-
-/* ================= SLIDER ================= */
-
-export const ProjectsSlider = styled.div`
-  display: flex;
-  gap: 28px;
-
-  width: 100%;
-  max-width: 1200px;
-
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-
-  padding: 40px 0;
-
-  -webkit-overflow-scrolling: touch;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    gap: 22px;
-    padding: 24px 0;
-  }
-
-  @media (max-width: 480px) {
-  gap: 16px;
-
-  padding: 16px;
-
-  scroll-snap-type: x mandatory;
-
-  justify-content: flex-start;
-
-  max-width: 100%;
-}
-`
-
-/* ================= ARROWS ================= */
-
-export const ArrowButton = styled.button`
-  width: 48px;
-  height: 48px;
-
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  background: rgba(24, 24, 27, 0.85);
-  color: #fafafa;
-
-  font-size: 20px;
-
-  cursor: pointer;
-  transition: 0.3s;
-
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    background: rgba(0, 252, 76, 0.18);
-  }
-
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-  }
-
-  @media (max-width: 480px) {
-  display: none;
-}
-`

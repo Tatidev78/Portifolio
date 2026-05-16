@@ -28,19 +28,12 @@ const ProjectCard = ({
 }: Props) => {
   return (
     <Card>
-      <ProjectImage
-        src={image}
-        alt={title}
-      />
+      <ProjectImage          src={image}         alt={title}       />
 
       <Content>
-        <Title>
-          {title}
-        </Title>
+        <Title>           {title}         </Title>
 
-        <Description>
-          {description}
-        </Description>
+        <Description>            {description}          </Description>
 
         <Stack>
           {stack.map((tech) => (
