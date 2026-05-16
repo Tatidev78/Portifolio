@@ -222,11 +222,9 @@ export const MobileSlider = styled.div`
 
 export const MobileTrack = styled.div`
   display: flex;
-  gap: 16px;
-  padding: 0 16px;
 `
 
 export const MobileCardWrapper = styled.div`
-  flex: 0 0 85%;
+  flex: 0 0 50%;
   scroll-snap-align: start;
 `
