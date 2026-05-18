@@ -9,7 +9,8 @@ import {
   Language,
   MenuButton,
   MobileMenu,
-  Overlay
+  Overlay,
+  DesktopGroup,
 } from './styles'
 
 type Props = {
@@ -28,8 +29,36 @@ const Header = ({ setSection, setLanguage, language }: Props) => {
 
   return (
     <Container>
+      {/* 1. ESQUERDA: Logo */}
       <Logo onClick={() => handleNavClick('stack')}>Tati.OS</Logo>
 
+      {/* 2. CENTRO: Nav + Language */}
+      <DesktopGroup className="desktop-only">
+        <Nav>
+          <button onClick={() => handleNavClick('stack')}>
+            {language === 'pt' ? 'Tecnologias' : 'Stack'}
+          </button>
+          <button onClick={() => handleNavClick('projects')}>
+            {language === 'pt' ? 'Projetos' : 'Projects'}
+          </button>
+          <button onClick={() => handleNavClick('connect')}>
+            {language === 'pt' ? 'Contato' : 'Connect'}
+          </button>
+        </Nav>
+
+        <Language>
+          <button onClick={() => setLanguage('pt')} className={language === 'pt' ? 'active' : ''}>PT</button>
+          <button onClick={() => setLanguage('en')} className={language === 'en' ? 'active' : ''}>EN</button>
+        </Language>
+      </DesktopGroup>
+
+      {/* 3. DIREITA: Status (fora do DesktopGroup!) */}
+      <Status className="desktop-only">
+        <span className="pulse" />
+        {language === 'pt' ? 'Disponível para projetos' : 'Available for work'}
+      </Status>
+
+      {/* MOBILE: hambúrguer + menu lateral */}
       <MenuButton onClick={() => setMenuOpen(!menuOpen)} $isOpen={menuOpen}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </MenuButton>

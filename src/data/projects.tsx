@@ -106,9 +106,9 @@ export const projects = [
       'Styled Components'
     ],
 
-    github: '',
+    github: 'https://github.com/Tatidev78/Projeto_Taro_att',
 
-    live: ''
+    live: 'https://projeto-taro.vercel.app/'
   },
 
   {

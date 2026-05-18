@@ -7,9 +7,10 @@ export const Container = styled.header`
   left: 0;
   z-index: 1000;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* esq (Logo) | centro (Nav+Lang) | dir (Status) */
   align-items: center;
-  justify-content: space-between;
+
 
   padding: 20px clamp(20px, 4vw, 48px);
 
@@ -19,21 +20,99 @@ export const Container = styled.header`
 
   @media (max-width: 768px) {
     padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
   }
 `
 
+/* ================= GRUPO DO CENTRO (DESKTOP) ================= */
+
+export const DesktopGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  justify-self: center; /* centraliza na coluna do meio */
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
+
+/* ================= LOGO (ESQUERDA) ================= */
+
 export const Logo = styled.h1`
-  font-size: clamp(20px, 1.5vw, 24px);
+  font-size: clamp(22px, 1.7vw, 26px);
   color: #ffffff;
   margin: 0;
   white-space: nowrap;
   cursor: pointer;
   transition: opacity 0.3s;
+  justify-self: start; /* gruda na esquerda */
 
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 768px) {
+    order: -1;
+  }
 `
+
+/* ================= STATUS (DIREITA) ================= */
+
+export const Status = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #8db600;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  justify-self: end; /* gruda na direita */
+
+  &.desktop-only {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8db600;
+    position: relative;
+
+    &.pulse {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: rgba(141, 182, 0, 0.3);
+        animation: pulse 2s ease-in-out infinite;
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+`
+
+/* ================= MENU HAMBÚRGUER ================= */
 
 export const MenuButton = styled.button<{ $isOpen?: boolean }>`
   display: none;
@@ -58,7 +137,7 @@ export const MenuButton = styled.button<{ $isOpen?: boolean }>`
   }
 `
 
-/* ================= OVERLAY ESCURO ================= */
+/* ================= OVERLAY ================= */
 
 export const Overlay = styled.div<{ $isOpen?: boolean }>`
   display: none;
@@ -83,11 +162,10 @@ export const Overlay = styled.div<{ $isOpen?: boolean }>`
 /* ================= MENU MOBILE ================= */
 
 export const MobileMenu = styled.div<{ $isOpen?: boolean }>`
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  display: none;
 
   @media (max-width: 768px) {
+    display: flex;
     position: fixed;
     top: 0;
     right: 0;
@@ -109,7 +187,6 @@ export const MobileMenu = styled.div<{ $isOpen?: boolean }>`
     transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Sombra sutil para dar profundidade */
     box-shadow: ${({ $isOpen }) => 
       $isOpen ? '-10px 0 40px rgba(0, 0, 0, 0.5)' : 'none'
     };
@@ -126,14 +203,13 @@ export const MobileMenu = styled.div<{ $isOpen?: boolean }>`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: clamp(18px, 2vw, 32px);
 
   button {
     background-color: transparent;
     border: none;
     color: #a1a1aa;
-    font-size: clamp(14px, 1vw, 16px);
+    font-size: clamp(16px, 1.2vw, 18px);
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -144,7 +220,6 @@ export const Nav = styled.nav`
       color: #ffffff;
     }
 
-    /* Underline animado no hover (desktop) */
     &::after {
       content: '';
       position: absolute;
@@ -186,7 +261,6 @@ export const Nav = styled.nav`
         display: none;
       }
 
-      /* Ícone sutil à esquerda no mobile */
       &::before {
         content: '›';
         margin-right: 12px;
@@ -214,7 +288,7 @@ export const Language = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
     color: #71717a;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -242,71 +316,6 @@ export const Language = styled.div`
     button {
       font-size: 14px;
       padding: 8px 18px;
-    }
-  }
-`
-
-/* ================= STATUS ================= */
-
-export const Status = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  color: #8db600;
-  font-size: 14px;
-  font-weight: 500;
-
-  white-space: nowrap;
-
-  span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #8db600;
-    position: relative;
-
-    &.pulse {
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        background: rgba(141, 182, 0, 0.3);
-        animation: pulse 2s ease-in-out infinite;
-      }
-    }
-  }
-
-  @keyframes pulse {
-    0% {
-      transform: translate(-50%, -50%) scale(0.8);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(2);
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    margin-top: auto;
-    font-size: 13px;
-    color: #a1a1aa;
-    padding-top: 24px;
-
-    span {
-      width: 6px;
-      height: 6px;
-
-      &.pulse::before {
-        width: 14px;
-        height: 14px;
-      }
     }
   }
 `
