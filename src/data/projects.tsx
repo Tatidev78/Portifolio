@@ -117,7 +117,7 @@ export const projects = [
     title: 'Zaysha Arts',
 
     description:
-      'Portfolio artístico moderno com identidade visual personalizada.',
+      'Site artístico para venda de ebooks infantis e identidade visual personalizada.',
 
     image: zayshaArtsImage,
 
@@ -127,8 +127,8 @@ export const projects = [
       'JavaScript'
     ],
 
-    github: '',
+    github: 'https://github.com/Tatidev78/Projeto_Zaysha',
 
-    live: ''
+    live: 'https://projeto-zaysha.vercel.app/'
   }
 ]
